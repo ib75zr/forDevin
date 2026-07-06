@@ -10,7 +10,9 @@ users = {
 
 @app.route("/users/<int:user_id>", methods=["GET"])
 def get_user(user_id):
-    user = users[user_id]
+    user = users.get(user_id)
+    if user is None:
+        return jsonify({"error": f"User with id {user_id} not found"}), 404
     return jsonify(user)
 
 
