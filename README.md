@@ -6,6 +6,9 @@ A small Flask REST API exposing a single endpoint.
 
 `GET /users/<id>` — returns a user's `name` and `email` from an in-memory dictionary.
 
+- Existing user → `200` with `{"name": ..., "email": ...}`
+- Unknown id → `404` with `{"error": "User with id <id> not found"}`
+
 ## Setup
 
 ```bash
@@ -16,4 +19,10 @@ pip install -r requirements.txt
 
 ```bash
 python app.py
+```
+
+## Test
+
+```bash
+pytest
 ```
